@@ -1,0 +1,42 @@
+Estrutura inicial do código;
+
+void setup();
+> Essa parte inicial será onde iremos atribuir todas as variáveis, pin modes e bibliotecas.
+
+// Aqui vemos um pequeno código onde estamos atribuindo o valor ao Pin número 3 na placa Arduino
+int buttonPin = 3;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+//
+
+void loop();
+> Aqui iremos colocar o código para ser executado repetidamente até darmos um comando de parada. É onde manipulamos os dados para o controle da placa.
+
+// Verificamos que se o botão 3 estiver Ligado(HIGH) o valor em sua entrada serial é de valor 'H' caso não o valor 'L' é atribuido resultando em seu desligamento(LOW), isso occore de 1 em 1 segundo.
+
+const int buttonPin = 3;
+
+// Inicialização do Pin e porta serial.
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop()
+{
+  if (digitalRead(buttonPin) == HIGH)
+    Serial.write('H');
+  else
+    Serial.write('L');
+
+  delay(1000);
+}
+//
+
+Todo o material está disponível em arduino.cc.
+
